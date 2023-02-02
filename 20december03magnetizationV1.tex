@@ -1,0 +1,247 @@
+\documentclass[
+aps,
+pra,
+twocolumn,
+showpacs,
+preprintnumbers,
+amsmath,
+amssymb,
+footinbib
+]{revtex4-2}
+\usepackage[breaklinks=true,colorlinks,citecolor=blue,linkcolor=blue,urlcolor=black]{hyperref}
+\usepackage{microtype}
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{enumitem}		%Item enumeration
+%\usepackage{multicol}			%Multi-column formatting
+\usepackage{xcolor}			%Adds text coloring commands
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage[left=2.0cm,top=2.0cm,right=2.0cm,bottom=3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\usepackage{setspace}
+%\usepackage[compact]{titlesec}
+\usepackage[normalem]{ulem}
+
+%\pagestyle{fancyplain}
+%\fancyhf{}
+%\setlength{\headheight}{15pt}
+%\lhead{in preparation}
+%\rhead{\today}
+%\numberwithin{equation}{section}
+%\cfoot{\thepage}
+\begin{document}
+%\linespread{0.75}
+%\thispagestyle{fancy}
+%\renewcommand{\abstractname}{}
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%\renewcommand\thesection{\Roman{section}}
+
+\title{Magnetization of the Second Order Relativistic Fermi Gas}
+\author{Andrew Steinmetz}
+\email{ajsteinmetz@arizona.edu}
+\author{Johann Rafelski}
+\affiliation{Department of Physics, The University of Arizona, Tucson, AZ 85721-0081, USA}
+\date{January 27, 2021}
+
+\begin{abstract}
+%\begin{spacing}{1.0}
+\noindent\textbf{Abstract.} The magnetization of Fermi systems is an important consideration for the stability and behavior of compact stellar remnants such as white dwarfs and neutron stars. Highly magnetized neutron stars, called magnetars, have some of the strongest magnetic fields in nature and the origin and stability of these objects is of great interest. In this work, we explore the magnetization of Fermi gases (such as protons or neutrons) with large anomalous magnetic moments which differ in g-factor significantly from the natural Dirac value of 2. To accomplish this we use the Klein-Gordon-Pauli (KGP) equation which is a relativistic second order spin one-half wave equation and has a unique description of anomalous magnetic moment. 
+%\end{spacing}
+\end{abstract}
+\maketitle
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%
+\section{Introduction}\label{sec:CHIsec}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%
+\noindent When exposed to external magnetic fields, matter can become magnetized enhancing or reducing the overall net field within the material. The origin of this magnetization is well known to be quantum mechanical in origin. The magnetic susceptibility $\chi$ is a measure of the material response given by
+\begin{alignat}{1}
+  \label{CHIeq01} \textbf{M}&=\chi\textbf{H}\,,\\
+  \label{CHIeq02} \textbf{B}&=\mu_{vac.}\left(\textbf{H}+\textbf{M}\right)=\mu_{vac.}\left(1+\chi\right)\textbf{H}\,,
+\end{alignat}
+where $\textbf{H}$ is the external magnetic field strength and $\textbf{B}$ is the total magnetic flux density. The magnetization $\textbf{M}$ is the magnetic moment density of the medium. The coefficient $\mu_{vac.}$ is the vacuum permeability, which with $\chi$ can define a material permeability $\mu_{mat.}=\mu_{vac.}(1+\chi)$. Paramagnetism occurs when $\chi>0$ which increases the magnetic flux as the magnetization $\textbf{M}$ is aligned with the external field. In contrast, diamagnetism is when $\chi<0$ reducing the overall magnetic flux as the magnetization is anti-aligned with the external field. In the most general case, the susceptibility can be described by a tensor which is neither paramagnetic or diamagnetic. In this work, we will be considering only the simple case where the susceptibility is single-valued.
+
+Before we handle an ensemble system, we will look at the magnetic moment $\boldsymbol{\mu}$ of a single-particle quantum system. To avoid confusion, the permeability will always be denoted either by a subscript for the vacuum or medium to always differentiate from magnetic moment. If we apply an external field with the local constant value of $B$ which is primarily responsible for the particle's response, the magnetic moment can be evaluated from the matrix element
+\begin{alignat}{1}
+  \label{CHIeq03} \left|\boldsymbol{\mu}_{n}\right|=-\left\langle n\left|\partial\hat{\mathcal{H}}/\partial B\right|n\right\rangle=-\frac{\partial E_{n}}{\partial B}\,,
+\end{alignat}
+where $\hat{\mathcal{H}}$ is the Hamiltonian of the system. It is valuable to point out that the individual dipole's response within a medium is only uniquely dependent on the external field $\textbf{H}$ in the case of weak medium magnetization. However, if the bulk magnetization is may easily be large and thus influential to each individual dipole. Physically each dipole is sensitive to the total magnetic flux $\textbf{B}$ which includes a mixture of external field and bulk magnetization $\textbf{M}$ from its neighbors. The magnetization density of the quantum system is then
+\begin{alignat}{1}
+  \label{CHIeq04} M_{n}(B)=\frac{1}{V}\left|\boldsymbol{\mu}_{n}\right|\,.
+\end{alignat}
+If we couple the system to a thermal reservoir of temperature $T$, the averaged magnetization at thermal and chemical equilibrium is
+\begin{alignat}{1}
+  \label{CHIeq05} M(B,T,\eta)=\frac{\sum_{n}M_{n}e^{-\beta (E_{n}-\eta N)}}{\sum_{n}e^{-\beta (E_{n}-\eta N)}}\,,
+\end{alignat}
+where $\beta=1/k_{B}T$, $k_{B}$ is the Boltzmann constant and $\eta$ is the chemical potential. We then introduce the grand potential $\Phi$ defined by
+\begin{alignat}{1}
+  \label{CHIeq06} \Phi=-\frac{1}{\beta}\ln\left({\sum_{n}e^{-\beta (E_{n}-\eta N)}}\right)=-\frac{1}{\beta}\ln\left(\mathcal{Z}\right)\,,
+\end{alignat}
+where $\mathcal{Z}$ is the grand partition function. This allows us to rewrite eq.~\eqref{CHIeq05} as
+\begin{alignat}{1}
+  \label{CHIeq07} M(B,T,\eta)=-\frac{1}{V}\frac{\partial \Phi}{\partial B}\,.
+\end{alignat}
+Combining eq.~\eqref{CHIeq06} and eq.~\eqref{CHIeq07} in the grand ensemble yields
+\begin{alignat}{1}
+  \label{CHIeq08} M=\frac{1}{\beta V}\frac{\partial}{\partial B}\ln\left(\mathcal{Z}\right)\,.
+\end{alignat}
+The magnetic susceptibility is related to the magnetization via
+\begin{alignat}{1}
+  \label{CHIeq09} \chi=\mu_{vac.}\frac{\partial M}{\partial B}\,.
+\end{alignat}
+If a given thermodynamic system is well described by a partition function, we can evaluate the susceptibility using eq.~\eqref{CHIeq09}.
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%
+\section{Landau Quantization}\label{sec:LANsec}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%
+\noindent To evaluate the susceptibility of the charged Fermi gas submerged in a magnetic field, we need the energy eigenvalues of the system. We consider an external homogeneous magnetic field in the z-direction
+\begin{alignat}{1}
+  \label{LANeq01} \textbf{B}=B\hat{z}\,,\indent \textbf{A}_{L}=-By\hat{x}\,,
+\end{alignat}
+where we have specifically chosen the Landau gauge $\textbf{A}_{L}$. Charged particles in homogeneous magnetic fields have their motion perpendicular to the direction of the magnetic field quantized into Landau orbits. Our next task is to choose our description of the quantum system. The second order KGP equation is given by
+\begin{alignat}{1}
+  \label{LANeq02} \left(\left(i\hbar\partial_{\mu}-eA_{\mu}\right)^{2}-m^{2}c^{2}-\frac{g}{2}e\hbar\frac{\sigma_{\mu\nu}F^{\mu\mu}}{2}\right)\Psi=0\,,
+\end{alignat}
+where $\sigma_{\mu\nu}$ is the spin tensor proportional to the commutator of the gamma matrices and $F^{\mu\nu}$ is the EM field tensor. The KGP equation is an alternate to the Dirac equation in describing spin one-half particles, though the two formulations are equivalent for the natural Dirac value of the $g$-factor of $g=2$. The primary difference between the two is that the KGP is second order in derivatives and the magnetic moment of the particle is explicitly given by the Pauli term in the wave equation rather than implicitly present in the spinor structure of the Dirac equation.
+
+The detailed solution to the Landau problem for the KGP particle is located in our prior work as well as a more detailed description of the KGP equation. The resulting energy levels are
+\begin{alignat}{1}
+  \label{LANeq03} E_{p_{z},n,s}=\pm\sqrt{m^{2}c^{4}+p^{2}_{z}c^{2}+e\hbar c^{2}B(2n+1-gs)}\,,
+\end{alignat}
+where $p_{z}$ is the momentum in the direction parallel to the external field, $n\in\mathbb{N}_{0}$ is the Landau level quantum number and $s=\pm1/2$ is the spin quantum number. These energy levels differ from the related Dirac energies only by the presence of an arbitrary $g$-factor. As we are in the Landau gauge, these states are also degenerate in $p_{x}$ as it commutes with eq.~\eqref{LANeq02}. The degeneracy of the spin one-half Landau levels is broken for $g\neq2$ except for values
+\begin{alignat}{1}
+  \label{LANeq04} g_{k}/2=1+k\,,\indent k\in\mathbb{Z}\,,
+\end{alignat}
+where the degeneracy of the levels is restored.
+
+Using eq.~\eqref{CHIeq03} we can evaluate the KGP magnetic moment yielding
+\begin{alignat}{1}
+  \label{LANeq05} \left|\boldsymbol{\mu}\right|_{p_{z},n,s}=-\frac{1}{2E}\left(e\hbar c^{2}(2n+1-gs)\right)\,.
+\end{alignat}
+From the numerator in eq.~\eqref{LANeq05} we see that the magnetic moment is broken into two distinct parts: (a) an orbital part related to the Landau quantization and (b) a spin part containing the natural moment of the particle. This is the expected result as the overall magnetic moment of the system arises from the Amperian current of the particle completing the Landau orbits and the intrinsic moment present by virtue of its spin. As the moment is weighted in the denominator by the energy, the two kinds of magnetic moment cannot truly be separated out except under certain limits.
+
+To better connect eq.~\eqref{LANeq05} to our traditional understanding of magnetic moment, we introduce the following substitutions
+\begin{alignat}{1}
+  \label{LANeq06} E = m'c^{2}\,,\indent \mu'=\frac{e\hbar}{2m'}\,,
+\end{alignat}
+yielding
+\begin{alignat}{1}
+  \label{LANeq07} \left|\boldsymbol{\mu}\right|_{p_{z},n,s}=-\mu'(2n+1-gs)\,.
+\end{alignat}
+Here we see $\mu'$ take on the roll of the effective magneton. In the non-relativistic limit, the coefficient becomes the Bohr magneton $\mu'\rightarrow\mu_{B}$. This limit also uniquely separates out the two contributions to the overall moment. This 
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%
+\section{Grand Partition Function}\label{sec:PARTsec}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%
+\noindent Now that we've obtained the energy eigenvalues of the KGP particle, we can work towards evaluating the grand partition function of the system and ultimately the magnetic properties of the magnetized KGP Fermi gas. In addition to considering polarization, there are also the positive and negative energy states. For now we will consider only positive energies. The grand partition function for the Fermi-Dirac ensemble is given by
+\begin{alignat}{1}
+  \label{PARTeq01} \ln\left(\mathcal{Z}\right)=\sum_{q}\ln\left(1+\zeta e^{-\beta E_{q}}\right)\,,\indent \zeta=e^{\beta\eta}\,,
+\end{alignat}
+where $q=\{p_{x},p_{z},n,s\}$ is the set of relevant quantum numbers and $\zeta$ is the fugacity. The chemical potential $\eta$ is an increasing function of the number of particles present within a given volume and fixed by the particle number
+\begin{alignat}{1}
+  \label{PARTeq02} N=\sum_{q}\langle n_{q}\rangle=\sum_{q}\frac{1}{\zeta^{-1}e^{\beta E_{q}}+1}\,.
+\end{alignat}
+Consider placing the system within a large cube of volume $V=L^{3}$ and imposing periodic boundary conditions. The sum in $p_{z}$ is continuous and can be replaced by an integral over the phase space in $z$
+\begin{alignat}{1}
+  \label{PARTeq03} \sum_{p_{z}}\rightarrow\frac{L}{h}\int dp_{z}\,.
+\end{alignat}
+The sum over $p_{x}$ however is restricted by the quantization of motion transverse to the external field. As $p_{x}$ commutes with eq.~\eqref{LANeq02} in the Landau gauge, this leads to a number of degenerate states of the same energy eigenvalue but differing $x$-momentum. 
+
+The allowed values of the $x$-momentum are $p_{x}=hn_{x}/L$ with $n_{x}\in\mathbb{Z}$, but with the further constraint that the Landau orbital radius $R_{L}$ must reside inside the volume. The maximum quanta $n_{x}$ then yields the number $\tilde{g}$ of degenerate states
+\begin{alignat}{1}
+  \label{PARTeq04} R_{L}\rightarrow L=\frac{p_{x}}{eB}\,,\indent \tilde{g}=\frac{eB}{h}L^{2}
+\end{alignat}
+The sums in eq.~\eqref{PARTeq01} and eq.~\eqref{PARTeq02} are then given by
+\begin{alignat}{1}
+  \label{PARTeq05} \sum_{q}\rightarrow\frac{2eBV}{h^{2}}\sum_{n,s}\int_{0}^{\infty}dp_{z}\,,
+\end{alignat}
+where we have shifted the integral's bounds due to the energy levels depending on $p_{z}^{2}$. The factor of two comes from the bounds of the integral over the z-direction. Combining eq.~\eqref{PARTeq01} and \eqref{PARTeq05} yields
+\begin{alignat}{1}
+  \label{PARTeq06} \ln\left(\mathcal{Z}\right)=\frac{2eBV}{h^{2}c}\sum_{n,s}\int_{0}^{\infty}dp_{z}\ln\left(1+\zeta e^{-\beta E^{s}_{p_{z},n}}\right)\,.
+\end{alignat}
+The grand partition function can be broken up into spin aligned $\mathcal{Z}^{+}$ (for $E^{s=+1/2}$) and spin anti-aligned $\mathcal{Z}^{-}$ (for $E^{s=-1/2}$) partitions. For brevity, we will label the aligned and anti-aligned energies as $E^{\pm}$.
+\begin{alignat}{1}
+  \notag \ln\left(\mathcal{Z}^{+}\mathcal{Z}^{-}\right)=\frac{2eBV}{h^{2}}\sum_{n=0}^{\infty}\int_{0}^{\infty}dp_{z}\Bigg\{\ln\left(1+\zeta e^{-\beta E^{+}_{p_{z},n}}\right)\\
+  \label{PARTeq07} +\ln\left(1+\zeta e^{-\beta E^{-}_{p_{z},n}}\right)\Bigg\}\,.
+\end{alignat}
+We introduce the substitution $u=p_{z}/mc$, $\tilde{\beta}=\beta mc^{2}$, and the critical magnetic field $B_{c}=m^{2}c^{2}/e\hbar$ yielding
+\begin{alignat}{1}
+  \label{PARTeq08} \ln\left(\mathcal{Z}^{\pm}\right)&=\frac{2eBVmc}{h^{2}}\sum_{n=0}^{\infty}\int_{0}^{\infty}du\ln\left(1+\zeta e^{-\tilde{\beta}\epsilon^{\pm}_{u,n,a}}\right)\,,\\
+ \label{PARTeq09} \frac{E^{+}_{p_{z},n}}{mc^{2}}&=\epsilon^{+}_{u,n,a}=\sqrt{1+u^{2}+\frac{B}{B_{c}}(2n-a)}\,,\\
+ \label{PARTeq10} \frac{E^{-}_{p_{z},n}}{mc^{2}}&=\epsilon^{-}_{u,n,a}=\sqrt{1+u^{2}+\frac{B}{B_{c}}(2n+2+a)}\,,\\
+ \label{PARTeq11} \epsilon^{-}_{u,n,a}&=\epsilon^{+}_{u,n+1,a'}\,,\indent (a'=-a)\,,
+\end{alignat}
+where we have explicitly used the anomalous moment parameter $a=g/2-1$. For KGP particles, the anomalous moment (a) breaks the degeneracy between Landau levels of opposite alignment and (b) depending on the size of the anomaly, flips the sign of the magnetic contribution to the energy for certain eccentric states. For $0<a<2$ the aligned ground state is uniquely separated from the rest of the states while for $2<a<4$ the aligned ground state and first excited state are uniquely separated. The pattern of unique eccentric states continues for further extreme values of anomalous moment. While we consider the $g$-factor to be the immutable description of magnetic moment, it is useful in the case of Landau levels to consider the anomaly $a$ as from the energies given in eq.~\eqref{LANeq02}, $g$ always is linearly added or subtracted from the Landau quantum number which are integers.
+
+Degeneracy is restored for values of the anomalous parameter given in eq.~\eqref{LANeq04}. While generating a large number of eccentric states from large anomalous moment may be of theoretical interest, it is of practical interest to consider particles like the proton where only the ground state is effected. Once the eccentric ground state is explicitly separated, the partition function eq.~\eqref{PARTeq07} between polarizations can be rewritten as
+\begin{alignat}{1}
+  \label{PARTeq12} \ln\left(\mathcal{Z}\right)&=\ln\left(\tilde{\mathcal{Z}}^{0}\tilde{\mathcal{Z}}^{+}\tilde{\mathcal{Z}}^{-}\right)\,,\\
+  \label{PARTeq13} \ln\left(\tilde{\mathcal{Z}}^{0}\right)&=\frac{2eBVmc}{h^{2}}\int_{0}^{\infty}du\ln\left(1+\zeta e^{-\tilde{\beta}\epsilon_{u,0,a}^{+}}\right)\,,\\
+    \label{PARTeq14} \ln\left(\tilde{\mathcal{Z}}^{+}\right)&=\frac{2eBVmc}{h^{2}}\sum_{n=1}^{\infty}\int_{0}^{\infty}du\ln\left(1+\zeta e^{-\tilde{\beta}\epsilon_{u,n,a}^{+}}\right)\,,\\
+    \label{PARTeq15} \ln\left(\tilde{\mathcal{Z}}^{-}\right)&=\ln\left(\tilde{\mathcal{Z}}^{+}\right)\Big|_{a\rightarrow a'}\,,\indent (a'=-a)\,. 
+\end{alignat}
+Equations~\eqref{PARTeq12}--\eqref{PARTeq15} represent the generalized partition function for the charged Fermi gas with anomalous magnetic moment. All physical thermodynamic quantities can then be derived from the above expression. As the above expressions are rather cumbersome, we will be evaluating them for specific limits of interest and compare them with the Fermi gas with energies given by the Dirac equation (and thus $g=2$) and Dirac-Pauli equation (which is distinct from KGP for $g\neq2$).
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%
+\section{Magnetization \& Susceptibility}\label{sec:MAGsec}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%
+We will now calculate the magnetization of the system defined in eq.~\eqref{CHIeq08} by evaluating eq.~\eqref{PARTeq12}. We will assume the anomalous parameter of the proton with $a_{p}=1.79$ which extracts the ground state from the partition of aligned $\mathcal{Z}^{+}$ states. Because the eccentric ground state has an energy beneath the rest mass, it (if physical) must be treated separately. This is analogous to the $g=2$ case where the ground state is uniquely non-degenerate and can be separated from the tower of double-degenerate excited states. The primary difference between that case and ours here is the tower of excited states all have non-degenerate energies. We break the magnetization into three different parts
+\begin{alignat}{1}
+  \notag M&=M^{0}+M^{+}+M^{-}\,,\\
+  \notag M&=\frac{1}{\beta V}\frac{\partial}{\partial B}\ln\left(\tilde{\mathcal{Z}}^{0}\right)+\frac{1}{\beta V}\frac{\partial}{\partial B}\ln\left(\tilde{\mathcal{Z}}^{+}\right)\\
+  \label{MAGeq01}&+\frac{1}{\beta V}\frac{\partial}{\partial B}\ln\left(\tilde{\mathcal{Z}}^{-}\right)\,.
+\end{alignat}
+Let us introduce the substitution
+\begin{alignat}{1}
+  \label{MAGeq02} &I_{n,a}=\int_{0}^{\infty}du\frac{\zeta}{\epsilon_{u,n,a}^{+}}\frac{e^{-\tilde{\beta}\epsilon_{u,n,a}^{+}}}{1+\zeta e^{-\tilde{\beta}\epsilon_{u,n,a}^{+}}}\,.
+\end{alignat}
+The contribution from the eccentric ground state magnetization then evaluates as
+\begin{alignat}{1}
+  \label{MAGeq03} M^{0}&=\frac{\ln\left(\tilde{\mathcal{Z}}^{0}\right)}{\beta BV}+\left(\frac{a}{B_{c}}\right)\frac{eBm^{2}c^{3}}{h^{2}}I_{0,a}\,.
+\end{alignat}
+We see that the coefficient in front of the second term in eq.~\eqref{MAGeq02} denotes that this term acts as a quantum correction by introducing the fine structure constant $\alpha$ yielding
+\begin{alignat}{1}
+  \label{MAGeq04} \left(\frac{a}{B_{c}}\right)\frac{eBm^{2}c^{3}}{h^{2}}\rightarrow \frac{a\alpha}{\pi}\frac{B}{\mu_{vac.}}\,.
+\end{alignat}
+It is interesting to note that for the Schwinger anomalous moment of $a=\alpha/2\pi$, the correction is of order $\alpha^{2}$.
+The remaining magnetization is given by
+\begin{alignat}{1}
+  \label{MAGeq05} M^{+}&=\frac{\ln\left(\tilde{\mathcal{Z}}^{+}\right)}{\beta BV}-\sum_{n=1}^{\infty}\left(2n-a\right)\frac{B}{\mu_{vac.}}\frac{\alpha}{\pi}I_{n,a}\\
+  \label{MAGeq06} M^{-}&=\frac{\ln\left(\tilde{\mathcal{Z}}^{-}\right)}{\beta BV}-\sum_{n=1}^{\infty}\left(2n+a\right)\frac{B}{\mu_{vac.}}\frac{\alpha}{\pi}I_{n,-a}\,.
+\end{alignat}
+From the above equations we notice two features: (a) the magnetization breaks into an explicitly temperature proportional part and an explicitly magnetic field proportional part and (b) for zero anomaly, the ground state would only contribute a temperature proportional term. The implication of this will be further explored in the subsequent section.
+
+The ground state part of the susceptability is calculated from eq.~\eqref{CHIeq09} as
+\begin{alignat}{1}
+  \label{MAGeq07} \chi^{0}&=2a\frac{\alpha}{\pi}\left(I_{0,a}+\frac{B}{2}\frac{\partial I_{0,a}}{\partial B}\right)
+\end{alignat}
+The second term in eq.~\eqref{MAGeq07} then represents a further higher order correction proportional to magnetic field strength. The polarized parts are calculated to be
+\begin{alignat}{1}
+  \label{MAGeq08} \chi^{+}&=-\sum_{n=1}^{\infty}2(2n-a)\frac{\alpha}{\pi}\left(I_{n,a}+\frac{B}{2}\frac{\partial I_{n,a}}{\partial B}\right)\,,\\
+    \label{MAGeq09} \chi^{-}&=-\sum_{n=1}^{\infty}2(2n+a)\frac{\alpha}{\pi}\left(I_{n,-a}+\frac{B}{2}\frac{\partial I_{n,-a}}{\partial B}\right)\,.
+\end{alignat}
+We can gleam from the result that the ground state and polarized parts will differ in sign and thus compete in determining whether the medium is paramagnetic or diamagnetic. The expressions given above for the magnetization and susceptibility are exact, but unwieldy. Better physics intuition can be gained by considering specific limits which may correspond to different material systems which could be found in nature. In the context of KGP, its unique properties when compared to DP Fermi gasses is most evident in strong field environments like those which can be found in neutron stars or magnetars.
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%
+\section{The $T=0$ limit}\label{sec:ZEROsec}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%
+It is useful to consider the $T=0$ limit ($\beta\rightarrow\infty$) and finite temperature limit as two separate cases. For zero temperature, the magnetization eq.~\eqref{MAGeq03} and eq.~\eqref{MAGeq05}-\eqref{MAGeq06} reduces to
+\begin{alignat}{1}
+  \label{ZEROeq01} M^{0}|_{T=0}&=\frac{a\alpha}{\pi}\frac{B}{\mu_{vac.}}I_{0,a}|_{T=0}\,,\\
+  \label{ZEROeq02} M^{+}|_{T=0}&=-\sum_{n=1}^{\infty}(2n-a)\frac{\alpha}{\pi}\frac{B}{\mu_{vac.}}I_{n,a}|_{T=0}\,,\\
+  \label{ZEROeq03} M^{-}|_{T=0}&=-\sum_{n=1}^{\infty}(2n+a)\frac{\alpha}{\pi}\frac{B}{\mu_{vac.}}I_{n,-a}|_{T=0}\,,
+\end{alignat}
+The integral eq.~\eqref{MAGeq02} in this limit evaluates to
+\begin{alignat}{1}
+  \label{ZEROeq04} &I_{n,a}|_{T=0}=\int_{0}^{\infty}du\frac{\zeta}{\epsilon_{u,n,a}^{+}}\frac{e^{-\tilde{\beta}\epsilon_{u,n,a}^{+}}}{1+\zeta e^{-\tilde{\beta}\epsilon_{u,n,a}^{+}}}\,.
+\end{alignat}
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%
+\section{The Classical Limit}\label{sec:CLASSsec}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%
+
+
+
+\end{document}
