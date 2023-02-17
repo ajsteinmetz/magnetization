@@ -1,0 +1,139 @@
+\documentclass[
+aps,
+pra,
+%twocolumn,
+showpacs,
+preprintnumbers,
+amsmath,
+amssymb,
+footinbib
+]{revtex4-2}
+\usepackage[breaklinks=true,colorlinks,citecolor=blue,linkcolor=blue,urlcolor=black]{hyperref}
+\usepackage{microtype}
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{enumitem}		%Item enumeration
+%\usepackage{multicol}			%Multi-column formatting
+\usepackage{xcolor}			%Adds text coloring commands
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage[left=2.0cm,top=2.0cm,right=2.0cm,bottom=3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\usepackage{setspace}
+%\usepackage[compact]{titlesec}
+\usepackage[normalem]{ulem}
+
+\newcommand*{\req}[1]{Eq.~{\eqref{#1}}}
+\newcommand*{\rf}[1]{Fig.~{\ref{#1}}}
+\newcommand*{\rsec}[1]{Sect.\,{\ref{#1}}}
+\newcommand*{\bb}{\boldsymbol}
+\newcommand*{\ar}{{\color{red}ADDREF }}
+
+%\pagestyle{fancyplain}
+%\fancyhf{}
+%\setlength{\headheight}{15pt}
+%\lhead{in preparation}
+%\rhead{\today}
+%\numberwithin{equation}{section}
+%\cfoot{\thepage}
+\begin{document}
+%\linespread{0.75}
+%\thispagestyle{fancy}
+%\renewcommand{\abstractname}{}
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%\renewcommand\thesection{\Roman{section}}
+
+\title{Mathematical Correspondence Between the Free Fermion and Magnetized Partition Functions}
+\author{Andrew Steinmetz}
+\email{ajsteinmetz@arizona.edu}
+\author{Cheng-Tao Yang}
+\author{Johann Rafelski}
+\affiliation{Department of Physics, The University of Arizona, Tucson, AZ 85721-0081, USA}
+\date{February 17, 2023}
+
+\begin{abstract}
+%\begin{spacing}{1.0}
+\noindent\textbf{Abstract.} To be written. 
+%\end{spacing}
+\end{abstract}
+\maketitle
+
+\section{Introduction}\label{sec:CHIsec}
+
+\noindent The KGP-Landau energies in a homogenous magnetic field $B$ defined to point in the $z$-direction are given by
+
+\begin{alignat}{1}
+    \label{EnergyKGP} E_{n,s}(p_{z},B) = \sqrt{m^{2}+p_{z}^{2}+2qB\left(n+\frac{1}{2}\right)-qBgs}\,,
+\end{alignat}
+where $n\in\mathbb{Z^{+}}$ for the Landau levels and $s\in\pm1/2$ for the spin states. The magnitude of the electric charge of the particle is $q$ and its mass is $m$. The g-factor of the particle is defined in terms of the anomalous magnetic moment via
+\begin{alignat}{1}
+    \label{gFactor} \frac{g}{2}=1+a\,.
+\end{alignat}
+We have put the above equation into natural units by setting $\hbar=c=1$. We then introduce an effective mass term which also incorporates the ground state component of the Landau energy
+\begin{alignat}{1}
+    \label{EffectiveMass} \tilde{m}^{2}_{s}(B)=m^{2}+qB(1-gs)>0\,,
+\end{alignat}
+where we require that the effective mass remain positive definite. This effective mass is also spin dependent. This assumption breaks down for very strong magnetic fields
+\begin{alignat}{1}
+    \label{BBreak} B_{\mathrm{crit}}=\frac{m^{2}}{qa}=\frac{\mathcal{B}_{S}}{a}\,,
+\end{alignat}
+where $\mathcal{B}_{S}$ is the Schwinger critical field for the particle. The argument in the statistical Boltzmann factor is given by
+\begin{alignat}{1}
+    \label{Boltz} X_{n,s}\equiv\frac{E_{n,s}}{T}\,.
+\end{alignat}
+Let us now introduce the partition function for the relativistic statistical ensemble of magnetized fermions. We use the standard fermion partition function definition
+\begin{alignat}{1}
+    \label{PartFunc} \ln\left(\mathcal{Z}_{L}\right)=\sum_{\alpha}\ln\left(1+z_{\sigma}\exp(-X_{s})\right)\,,
+\end{alignat}
+where we are summing over all possible quantum numbers $\alpha = \{p_{z},n,s,\sigma,\tilde{g}\}$. The summation over $\tilde{g}$ represents the occupancy of Landau states which are matched to the available phase space within $\Delta p_{x}\Delta p_{y}$. If we consider the Landau energies to represent the transverse momentum $p_{T}^{2}=p_{x}^{2}+p_{y}^{2}$ of the system, then the relationship that defines $\tilde{g}$ is given by
+\begin{alignat}{1}
+    \label{PhaseSpace} \frac{L^{2}}{(2\pi)^{2}}\Delta p_{x}\Delta p_{y}=\frac{qBL^{2}}{2\pi}\Delta n\,,\indent \tilde{g}=\frac{eBL^{2}}{2\pi}\,.
+\end{alignat}
+The fugacity $z_{\sigma}$ is defined as
+\begin{alignat}{1}
+    \label{Fugacity} z_{\sigma}=\exp\left(\sigma\eta\right)\,,
+\end{alignat}
+where $\eta$ is the chemical potential of the species and $\sigma\in\pm1$ denotes between particles and antiparticles. The summation over the continous $p_{z}$ can be replaced with an integration
+\begin{alignat}{1}
+    \label{pzInt} \sum_{p_{z}}\rightarrow\frac{L}{2\pi}\int^{+\infty}_{-\infty}dp_{z}\,,
+\end{alignat}
+where $L$ defines the boundary length of our considered volume. The partition function \req{PartFunc} can be then rewritten as
+\begin{alignat}{1}
+    \label{PartFuncOne} \ln\left(\mathcal{Z}_{L}\right)=\sum_{\sigma}^{\pm1}\sum_{s}^{\pm1/2}\frac{2eBL^{3}}{(2\pi)^{2}}\int^{+\infty}_{0}dp_{z}\sum_{n=0}^{\infty}\ln\left(1+z_{\sigma}\exp(-X_{s})\right)\,.
+\end{alignat}
+We note that the partition function can be broken into four quantum gasses: Particles and antiparticles, and spin aligned and antialigned. This can be represented by separate partition functions $\ln\left(\mathcal{Z}^{\sigma}_{s}\right)$ where
+\begin{alignat}{1}
+    \label{FourGasses} \ln\left(\mathcal{Z}_{L}\right)=\sum_{\sigma,s}\ln\left(\mathcal{Z}^{\sigma}_{s}\right)\,,
+\end{alignat}
+Due to the properties of logs, the overall partition function will be sum of the partition function of each species, which allows us to consider each species separately. The next step is to replace the sum over $n$ Landau levels and replace it with an integration using the Euler-Maclaurin integration formula. The Euler-Maclaurin formula is given by
+\begin{alignat}{1}
+    \label{EulerM} \sum^{b}_{n=a}f(n)-\int^{b}_{a}f(x)dx = \frac{1}{2}\left(f(b)+f(a)\right)+\sum_{i=1}^{k}\frac{b_{2i}}{(2i)!}\left(f^{(2i-1)}(b)-f^{(2i-1)}(a)\right)+R(k)\,,
+\end{alignat}
+where $b_{n}$ are the Bernoulli numbers and $R(k)$ is the error remainder defined by integrals over Bernoulli polynomials. The integer $k$ is chosen for the level of approximation that is desired. Using \req{EulerM} allows us to convert the sum over $n$ quantum numbers in \req{PartFuncOne} into an integral. We define
+\begin{alignat}{1}
+    \label{Func} f(p_{z},n,s,\sigma)=\ln\left(1+z_{\sigma}\exp(-X_{s})\right)\,,
+\end{alignat}
+The result for $k=1$ is
+\begin{alignat}{1}
+    \label{PartFuncTwo} \ln\left(\mathcal{Z}_{s}^{\sigma}\right)=\frac{2eBL^{3}}{(2\pi)^{2}}\int_{0}^{+\infty}dp_{z}\left(\int_{0}^{+\infty}dn f(n) + \frac{1}{2}f(0) + \frac{1}{12}\frac{\partial f(n)}{\partial n} + R(1)\right)
+\end{alignat}
+We introduce the dimensionless variables
+\begin{alignat}{1}
+    \label{Unitless} a_{s}=\frac{m_{s}}{T}\,,\indent y_{s}=\frac{p_{z}}{m_{s}}\,,\indent u_{s}=\frac{2qB}{m_{s}^{2}}n\,,
+\end{alignat}
+which allows us to express \req{Boltz} as
+\begin{alignat}{1}
+    \label{UnitlessBoltz} X_{s}(y_{s},u_{s})=a_{s}\sqrt{1+y_{s}^{2}+u_{s}}\,.
+\end{alignat}
+Via substitution of dimensionless variables, and some rearrangment, we can write the magnetized partition function in terms of free fermion partition functions of differing masses, yielding,
+\begin{alignat}{1}
+    \label{Equality} \ln\left(\mathcal{Z}^{\sigma}_{s}\right) = \ln\left(\mathcal{Z}^{\sigma}_{F}\right)|_{m_{s}} + \frac{2eBL^{3}}{(2\pi)^{2}}m_{s}\int_{0}^{+\infty}dy_{s}\left(\frac{1}{2}f(0) + \frac{1}{12}\frac{\partial f(n)}{\partial n} + R(1)\right)
+\end{alignat}
+
+
+\end{document}
